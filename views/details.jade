@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Details for #{product.name}
+  p= product.description
+  p $#{product.price.toFixed(2)}
+  if product.inStock
+    p In stock
+  else
+    p Out of stock
