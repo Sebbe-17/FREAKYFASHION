@@ -20,7 +20,7 @@ router.get('/:id', (req, res) => {
     return;
   }
 
-  res.render('details', {
+  res.render('products', {
     title: product.name,
     product: product
   });
