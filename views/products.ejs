@@ -1,55 +1,13 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
-  <title>Svart T-Shirt</title>
-</head>
-
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <section>
-      <div>  <!-- Logotyp -->
-        <img src="https://placehold.co/200x100?text=Logo" alt="Logotype" />
-      </div>
-
-      <!-- Sökfält och ikoner -->
-      <div class="search-and-icons">
-        <form class="search-bar">  <!-- Sökfält -->
-          <i class="bi bi-search"></i>  <!-- Sök-ikon (Bootstrap) -->
-          <input type="search" name="search" placeholder="Sök produkt" />
-        </form>
-        <!-- ikoner -->
-        <div class="icons"> 
-          <a href="#"><i class="bi bi-suit-heart"></i></a><a href="#"><i class="bi bi-basket3"></i></a>  <!-- Hjärta och Varukorg ikoner (Bootstrap) -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Huvudmeny -->
-    <nav>
-      <ul class="main-menu">
-        <li><a href="#">Nyheter</a></li>
-        <li><a href="#">Bästsäljare </a></li>
-        <li><a href="#">Kvinnor</a></li>
-        <li><a href="#">Män</a></li>
-      </ul>
-    </nav>
-  </header>
-
   <!-- Main -->
   <main>
     <section class="details">
       <div class="detail-image">  <!-- Bild -->
-        <a href=""><img src="https://placehold.co/200x300?text=Svart+T-shirt" alt="test" /></a>
+        <a href=""><img src="https://placehold.co/200x300?text=<%= product.name %>" alt="<%= product.name %>" /></a>
       </div>
       <div class="detail-info">  <!-- Text/Info -->
-        <h1><b>Svart T-Shirt</b></h1>
-        <span>Levis</span>
+        <h1><b><%= product.name %></b></h1>
+        <span>levis</span>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate
           laborum sed fugit quo. Dolorum enim quibusdam cumque explicabo ea
@@ -57,7 +15,7 @@
           reiciendis, est ipsum illum consectetur? Quidem odit esse in
           similique deleniti omnis asperiores?
         </p>
-        <h2>199: SEK</h2>
+        <h2><%= product.price %>: SEK</h2>
         <button class="add-wares">Lägg i varukorg</button>  <!-- Knapp -->
       </div>
     </section>
@@ -65,82 +23,10 @@
     <!-- Liknande produkter -->
     <h2 class="section-title">Liknande produkter</h2>
     <section class="similar-products">
-      <div> <!-- Rad 1 -->  <!-- Bild -->
-        <a href=""><img src="https://placehold.co/200x300?text=Grå+T-shirt" alt="Grå T-shirt" /></a>
-        <div class="info">  <!-- Text/Info -->
-          <span class="Name"><b>Grå T-Shirt</b></span>
-          <span class="Price"><b>199: SEK</b></span>
-        </div>
-        <span class="Brand">Levis</span>
-      </div>
-
-      <div> <!-- Rad 2 -->  <!-- Bild -->
-        <a href=""><img src="https://placehold.co/200x300?text=Vit+T-shirt" alt="Vit T-shirt" /></a>
-        <div class="info">  <!-- Text/Info -->
-          <span class="Name"><b>Vit T-Shirt</b></span>
-          <span class="Price"><b>199: SEK</b></span>
-        </div>
-        <span class="Brand">Levis</span>
-      </div>
-
-      <div> <!-- Rad 3 -->  <!-- Bild -->
-        <a href=""><img src="https://placehold.co/200x300?text=Röd+T-shirt" alt="Röd T-shirt" /></a>
-        <div class="info">  <!-- Text/Info -->
-          <span class="Name"><b>Röd T-Shirt</b></span>
-          <span class="Price"><b>199: SEK</b></span>
-        </div>
-        <span class="Brand">Levis</span>
-      </div>
-    </section>
-
-    <!-- Fördelar -->
-    <section class="benefits"> <!-- (ikoner > text) -->
-      <div>
-        <i class="bi bi-globe-americas"></i>  <!-- Glob-ikon (Bootstrap) -->
-        <a href="#">Gratis frakt och returer</a>
-      </div>
-
-      <div>
-        <i class="bi bi-airplane-engines"></i>  <!-- Flygplans-ikon (Bootstrap) -->
-        <a href="#">Expressleverans</a>
-      </div> 
-      
-      <div>
-        <i class="bi bi-shield-shaded"></i>  <!-- Sköld-ikon (Bootstrap) -->
-        <a href="#">Säkra betalningar</a>
-      </div>
-
-      <div>
-        <i class="bi bi-envelope-paper"></i>  <!-- Nyhetsbrev-ikon (Bootstrap) -->
-        <a href="#">Nyheter varje dag</a>
-      </div>
+      <a href=""><img src="https://placehold.co/200x300?text=Produkt+1" alt="Produkt 1" /></a>
+      <a href=""><img src="https://placehold.co/200x300?text=Produkt+2" alt="Produkt 2" /></a>
+      <a href=""><img src="https://placehold.co/200x300?text=Produkt+3" alt="Produkt 3" /></a>
     </section>
   </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div>
-      <!-- Footer content -->
-      <div class="footer-links">
-        <a href="#"><b>Shopping</b></a>
-        <a href="#">Vinterjackor</a>
-        <a href="#">Pufferjackor</a>
-        <a href="#">Kappa</a>
-        <a href="#">Trenchcoats</a>
-      </div>
-
-      <div class="footer-links">
-        <a href="#"><b>Minasidor</b></a>
-        <a href="#">Mina beställningar</a>
-        <a href="#">Mitt konto</a>
-      </div>
-    </div>
-    
-    <!-- Copyright -->
-    <div class="copyright">
-      <i class="bi bi-c-circle"></i>
-      <p>freaky fashion</p>
-    </div>
-  </footer>
 </body>
 </html>
