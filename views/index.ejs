@@ -1,3 +1,10 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Freaky Fashion</title>
+</head>
+
 <body>
   <main>
     <!-- Hero -->
@@ -22,10 +29,10 @@
       <a href=""><img src="https://placehold.co/600x400?text=Lorem,+ipsum+dolor" alt="Lorem, ipsum dolor" /></a>
     </section>
 
-  <!-- Produktkort -->
+  <!-- Produktkort, dynamiska, 8 stycken -->
   <section class="Product-cards"> 
-      <ul>
-        <% products.forEach(product => { %>
+      <dl>
+        <% products.slice(0, 8).forEach(product => { %>
           <li>
           <a href="products/<%= product.id %>"><img src="https://placehold.co/200x300?text=<%= product.name %>" alt="<%= product.name %>" /></a>
           <a href="#"><i class="bi bi-suit-heart"></i></a>
@@ -37,7 +44,9 @@
           <p>levis</p>
           </li>
         <% }); %>
-      </ul>
+      </dl>
     </section>
   </main>
 </body>
+
+</html>
