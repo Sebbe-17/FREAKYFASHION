@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <!-- Main -->
+  <main>
+    <!-- Productkort, dynamsika, 4 stycken, samma kategori -->
+    <h2 class="section-title"> <%= title %></h2>
+    <section class="similar-products">
+      <dl>
+        <% products.slice(0, 4).forEach(product => { %>
+          <li>
+            <a href="/products/<%= product.id %>"><img src="https://placehold.co/200x300?text=<%= product.name %>" alt="<%= product.name %>" /></a> <!-- Länk till produkt inom samma mapp-->
+            <a href="#"><i class="bi bi-suit-heart"></i></a>
+          </li>
+
+          <li>
+            <span><%= product.name %></span>
+            <span><%= product.price %> SEK</span>
+            <p>levis</p>
+          </li>
+        <% }); %>
+      </dl>
+    </section>
+  </main>
+
+</body>
+</html>
