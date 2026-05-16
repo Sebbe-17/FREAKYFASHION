@@ -3,12 +3,29 @@
 
 <body>
     <main>
-        <h1>Sökresultat</h1>
-        <p>Här visas produkter som liknar "<%= query %>".</p>
+        <!-- Ger olika meddelanden beroende på antal sökresultat -->
+
+        <!-- Om ingen produkt hittas, visas ett meddelande -->
+        <% if (products.length === 0) { %>
+          <p>Inga produkter hittades som matchar sökningen.</p>
+        <% } %>
+
+        <!-- om bara ett sökresultat hittadess visa medelande -->
+        <% if (products.length === 1) { %>
+          <h1>Sökresultat</h1>
+          <p>Hittade en produkt med termen "<%= query %>".</p>
+        <% } %>
+
+          <!-- Om flera sökresultat hittas, visa meddelande -->
+        <% if (products.length > 1) { %>
+          <h1>Sökresultat</h1>  
+          <p>Hittade <%=(products.length)%> produkter med termen "<%= query %>".</p>
+        <% } %>
+
         <!-- visar produkter med namn som innehåller söktermen -->
         <section class="search-results">
           <dl>
-            <% products.forEach(product => { %>
+            <% products.forEach(product => { %>  <!-- Loopar igenom alla produkter som matchar sökningen och visar dem -->
               <li>
                 <a href="/products/<%= product.id %>"><img src="https://placehold.co/200x300?text=<%= product.name %>" alt="<%= product.name %>" /></a>
                 <a href="#"><i class="bi bi-suit-heart"></i></a>
