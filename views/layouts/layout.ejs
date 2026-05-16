@@ -11,8 +11,10 @@
     <!-- Header -->
     <header class="site-header">
     <section>
-      <div>  <!-- Logotyp -->
-        <img src="https://placehold.co/200x100?text=Logo" alt="Logotype" />
+      <div>  <!-- Logotyp, länk till huvudsidan -->
+        <a href="/">
+          <img src="https://placehold.co/200x100?text=Logo" alt="Logotype" />
+        </a>
       </div>
 
       <!-- Sökfält och ikoner -->
@@ -20,6 +22,7 @@
         <form class="search-bar" action="/search" method="GET">  <!-- Sökfält -->
           <i class="bi bi-search"></i>  <!-- Sök-ikon (Bootstrap) -->
           <input type="search" name="q" placeholder="Sök produkt" /> <!-- Sökfältet skickar en GET-förfrågan till /search med sökparametern -->
+          <button type="submit">Sök</button>
         </form>
         <!-- ikoner -->
         <div class="icons">
@@ -65,36 +68,38 @@
       </div>
     </section>
 
-    <section>
-      <!-- Row 1 -->
-      <div class="footer-links">
-        <a href="#"><b>Shopping</b></a>
-        <a href="#">Vinterjackor</a>
-        <a href="#">Pufferjackor</a>
-        <a href="#">Kappa</a>
-        <a href="#">Trenchcoats</a>
-      </div>
+    <section class="gray-footer">
+      <section class="footer-menu">  <!-- Footer-meny -->
+        <!-- Row 1 -->
+        <div class="footer-links">
+          <a href="#"><b>Shopping</b></a>
+          <a href="#">Vinterjackor</a>
+          <a href="#">Pufferjackor</a>
+          <a href="#">Kappa</a>
+          <a href="#">Trenchcoats</a>
+        </div>
 
-      <!-- Row 2 -->
-      <div class="footer-links">
-        <a href="#"><b>Minasidor</b></a>
-        <a href="#">Mina beställningar</a>
-        <a href="#">Mitt konto</a>
-      </div>
+        <!-- Row 2 -->
+        <div class="footer-links">
+          <a href="#"><b>Minasidor</b></a>
+          <a href="#">Mina beställningar</a>
+          <a href="#">Mitt konto</a>
+        </div>
 
-      <!-- Row 3 -->
-      <div class="footer-links">
-        <a href="#"><b>Kundtjänst</b></a>
-        <a href="#">Returpolicy</a>
-        <a href="#">Integritetspolicy</a>
-      </div>
-    </section>
-    
-    <!-- Copyright -->
-    <div class="copyright">
-      <i class="bi bi-c-circle"></i>
-      <p>freaky fashion</p>
-    </div>
+        <!-- Row 3 -->
+        <div class="footer-links">
+          <a href="#"><b>Kundtjänst</b></a>
+          <a href="#">Returpolicy</a>
+          <a href="#">Integritetspolicy</a>
+        </div>
+      </section>
+      
+      <!-- Copyright -->
+      <section class="copyright">
+        <i class="bi bi-c-circle"></i>
+        <p>freaky fashion</p>
+      </section>
+  </section>
   </footer>
 </body>
 </html>
