@@ -17,9 +17,9 @@
 
       <!-- Sökfält och ikoner -->
       <div class="search-and-icons">
-        <form class="search-bar">  <!-- Sökfält -->
+        <form class="search-bar" action="/search" method="GET">  <!-- Sökfält -->
           <i class="bi bi-search"></i>  <!-- Sök-ikon (Bootstrap) -->
-          <input type="search" name="search" placeholder="Sök produkt" />
+          <input type="search" name="q" placeholder="Sök produkt" /> <!-- Sökfältet skickar en GET-förfrågan till /search med sökparametern -->
         </form>
         <!-- ikoner -->
         <div class="icons">

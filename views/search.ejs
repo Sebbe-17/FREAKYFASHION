@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <main>
+        <h1>Sökresultat</h1>
+        <p>Här visas produkter som liknar "<%= query %>".</p>
+        <!-- visar produkter med namn som innehåller söktermen -->
+        <section class="search-results">
+          <dl>
+            <% products.forEach(product => { %>
+              <li>
+                <a href="/products/<%= product.id %>"><img src="https://placehold.co/200x300?text=<%= product.name %>" alt="<%= product.name %>" /></a>
+                <a href="#"><i class="bi bi-suit-heart"></i></a>
+
+                <span><%= product.name %></span>
+                <span><%= product.price %> SEK</span>
+                <p>levis</p>
+              </li>
+            <% }); %>
+          </dl>
+        </section>
+    </main>
+</body>
+</html>
