@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administation</title>
+</head>
+<body>
+    <main>
+        <!-- Produkter visas som tabell -->
+        <% products.forEach(product => { %>
+            <table>
+                <tr>
+                    <td><%= product.name %></td>
+                    <td><%= product.price %> SEK</td>
+                    <td><a href="/admin/products/edit/<%= product.id %>">Edit</a></td>
+                    <td><a href="/admin/products/delete/<%= product.id %>">Delete</a></td>
+                </tr>
+            </table>
+        <% }); %>
+    </main>
+</body>
+</html>

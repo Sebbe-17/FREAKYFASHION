@@ -13,6 +13,7 @@
     "ejs": "^5.0.2",
     "express": "~4.16.1",
     "express-ejs-layouts": "^2.5.1",
+    "folder-router": "^1.0.4",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1"
