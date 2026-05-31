@@ -2,9 +2,7 @@
 .benefits {
     padding: 1rem;
     font-size: 1.2rem;
-    
 }
-
 .benefits > div {  /* Till varje container */
     display: flex;
     justify-content: center;
@@ -12,34 +10,14 @@
     gap: 0.5rem;
 }
 
-/* Fördelar: över 480px */
-@media (min-width: 480px) {
-    .benefits {  /* Struktur: 2 kolumner */
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-/* Fördelar: över 1024px */
-@media (min-width: 1024px) {
-    .benefits {  /* Struktur: 4 kolumner */
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
 
 /* Footer: standard/mobil */
 .gray-footer {
-    border: 2px solid black;
-    background-color: lightgrey;
-    padding: 1rem;
     line-height: 2rem;
 }
 .gray-footer .footer-links {
     display: flex;
     flex-direction: column;
-    color: #610000;
 }
 
 .copyright {
@@ -49,10 +27,41 @@
     gap: 0.5rem;
 }
 
+/* MEDIA QUERIES */
+
+/* Footer: under 480px */
+@media (max-width: 480px) {  /* Temporarily does not work (will fix later) */
+    .footer-links label {
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+    }
+    /* toggle: Dölj länkarna */
+    #toggle-shopping:checked ~ a,
+    #toggle-account:checked ~ a,
+    #toggle-customer-service:checked ~ a {
+        display: none;
+    }
+}
 /* Footer: över 480px */
 @media (min-width: 480px) {
+    .benefits {  /* Struktur: 2 kolumner */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .gray-footer {
+        background-color: lightgrey;
+        padding: 1rem;
+        border-top: 1px solid black;
+    }
     .gray-footer .footer-menu {  /* Lägger delarna i sidled */
         display: flex;
         gap: 3rem;
+    }
+}
+/* Fördelar: över 1024px */
+@media (min-width: 1024px) {
+    .benefits {  /* Struktur: 4 kolumner */
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
     }
 }
