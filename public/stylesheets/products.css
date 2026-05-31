@@ -1,0 +1,102 @@
+/* Till Product-details! (Page: 2) */
+.details .icon {
+        position: absolute;
+        align-self: flex-end;
+        margin: 0.5rem;
+        padding: 0.2rem;
+    }
+
+@media (min-width: 480px) {
+    .details .icon {
+        display: none;
+    }
+}
+
+/* Details: standard/mobil */
+.details div {  /* Skapar utrymme */
+    padding: 1rem;
+}
+
+.details img {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.details .add-wares {  /* varukorgs-knappen */
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* radavstånd */
+.details .detail-info span {
+    line-height: 3;
+}
+
+.details .detail-info p,
+.details .detail-info h2 {  /* Begränsar textbredden för bättre läsbarhet */
+    padding-bottom: 1rem;
+    max-width: 35rem;
+}
+
+/* Details: över 480px */
+@media (min-width: 480px) {
+    .details {  /* Lägger bild och info sidleds */
+        display: flex;
+    }
+
+    .details .add-wares {  /* Gör knappen mindre */
+        width: auto;
+    }
+
+    .details .detail-image {
+        flex-grow: .4;
+    }
+}
+
+
+/* Liknande produkter: Dölj på mobil */
+.similar-products, .section-title {
+    display: none;
+}
+
+/* Liknande produkter: över 480px */
+@media (min-width: 480px) {
+    .section-title {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .similar-products {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .similar-products > div {  /* Till varje produkt */
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .similar-products .info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .similar-products .Name {
+        flex-grow: 1;
+    }
+
+    .similar-products .image-link img {
+        border: 1px solid black;
+        width: 100%;
+    }
+
+    .similar-products .brand {
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,46 @@
+/* Till Formulär-fältet */
+.admin-new-form {
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.admin-new-form h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.admin-new-form form {
+    padding-bottom: 1.5rem;
+}
+
+.admin-new-form .form-description > textarea {
+    width: 25rem;
+    height: 10rem;
+}
+
+.admin-new-form .form-image > label {
+    display: inline-block;
+    padding: 0.3rem .7rem;
+    border: 1px solid black;
+    background-color: rgb(231, 231, 231);
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.admin-new-form .form-sku > input {
+    width: 5rem;
+}
+
+.admin-new-form .form-price > input {
+    width: 5rem;
+}
+.admin-new-form .form-category > select {
+    width: 10rem;
+    border-radius: .3rem;
+}
+
+.admin-new-form button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}

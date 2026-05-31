@@ -5,6 +5,9 @@
     text-decoration: none;
 }
 
+a {
+    color: black;
+}
 
 /* Header */
 .admin-header {
@@ -47,30 +50,6 @@
     border: 1px solid black;
     color: black;
     border-radius: 5px;
-}
-
-
-/* Products Table */
-.admin-table {
-    width: 100%;
-}
-.admin-table-row {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 6fr 2fr 1fr;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-.admin-table-row td {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    padding: 0.3rem;
-}
-.admin-table-row:nth-of-type(odd) {
-    background-color: rgb(238, 238, 238);
-}
-.admin-table-row:first-child {
-    background-color: rgb(192, 192, 192);
 }
 
 /* Page-2 Admin New */
