@@ -11,6 +11,7 @@ const detailsRouter = require('./routes/products');
 const searchRouter = require('./routes/search');
 const categoryRouter = require('./routes/categories');
 const adminProductsRouter = require('./routes/admin/products');
+const adminCategoryRouter = require('./routes/admin/categories');
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.set('layout', 'layouts/layout');
 // Middleware
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
@@ -34,6 +35,8 @@ app.use('/products', detailsRouter);
 app.use('/search', searchRouter);
 app.use('/categories', categoryRouter);
 app.use('/admin/products', adminProductsRouter);
+app.use('/admin/new', adminProductsRouter);
+app.use('/admin/categories', adminCategoryRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

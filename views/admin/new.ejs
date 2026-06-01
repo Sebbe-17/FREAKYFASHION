@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+    <link rel="stylesheet" href="/stylesheets/admin-new.css">
+    <title>Products Admin</title>
+</head>
+<body>
+  <main>
+      <h1>Lägg till ny produkt</h1>
+
+    <section class="admin-new-form">
+    <form action="/admin/products/new" method="POST" enctype="multipart/form-data">
+
+        <p>Namn</p>
+        <input type="text" name="name">
+
+        <p>Beskrivning</p>
+        <textarea name="description"></textarea>
+
+        <p>Bild</p>
+        <input type="file" name="image" id="image">
+
+        <p>Märke</p>
+        <input type="text" name="brand">
+
+        <p>SKU</p>
+        <input type="text" name="SKU">
+
+        <p>Pris</p>
+        <input type="number" name="price" step="0.01">
+
+        <p>Kategori</p>
+        <select name="category_id">
+            <% (categories || []).forEach(c => { %>
+                <option value="<%= c.id %>">
+                    <%= c.name %>
+                </option>
+            <% }) %>
+        </select>
+
+        <button type="submit">Lägg till</button>
+
+    </form>
+</section>
+
+    <script src="/app.js"></script>
+  </main>
+  
+
+</body>
+</html>

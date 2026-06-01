@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+    <link rel="stylesheet" href="/stylesheets/admin-tables.css">
     <title>Administation</title>
 </head>
 <body>
     <main>
-        <!-- Produkter visas som tabell -->
-        <% products.forEach(product => { %>
-            <table>
-                <tr>
+        <section class="admin-sub-header">
+            <h1>Produkter</h1>
+            <a href="/admin/products/new" class="admin-new-button">Ny produkt</a>
+        </section>
+
+    <!-- Produkter visas som tabell -->
+        <table class="admin-table">
+            <tr class="admin-table-row">  <!-- Top-row-->
+                <td>Namn</td>
+                <td>SKU</td>
+                <td>Pris</td>
+            </tr>
+            <% products.forEach(product => { %>  <!-- product rows, based on products array -->
+                <tr class="admin-table-row">
                     <td><%= product.name %></td>
+                    <td><%= product.SKU %></td>
                     <td><%= product.price %> SEK</td>
-                    <td><a href="/admin/products/edit/<%= product.id %>">Edit</a></td>
-                    <td><a href="/admin/products/delete/<%= product.id %>">Delete</a></td>
                 </tr>
-            </table>
-        <% }); %>
+            <% }); %>
+        </table>
     </main>
 </body>
 </html>

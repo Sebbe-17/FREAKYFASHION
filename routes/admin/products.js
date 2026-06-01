@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+
+const upload = multer({
+  dest: 'public/uploads/'
+});
 
 // Importera db-objekt/
 const db = require('../../data/db');
-const app = require('../../app');
-
 // Use admin layout for admin routes
 router.use((req, res, next) => {
   res.locals.layout = 'layouts/admin-layout'; // Sätt layouten för admin-sidor
@@ -22,6 +25,27 @@ router.get('/', (req, res) => {
     products // Skicka produkterna till admin-produktvyn
   });
 
+});
+router.get('/new', (req, res) => {
+  const categories = db.prepare('SELECT * FROM categories').all();
+
+  res.render('admin/new', {
+    title: 'Admin - Lägg till produkt',
+    type: 'product',
+    categories
+  });
+});
+router.post('/new', upload.single('image'), (req, res) => {
+  const { name, price, SKU, description, brand, category_id } = req.body;
+
+  const insert = db.prepare(`
+    INSERT INTO products (name, price, SKU, description, brand, category_id)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `);
+
+  insert.run(name, price, SKU, description, brand, category_id);
+
+  res.redirect('/admin/products');
 });
 
 
