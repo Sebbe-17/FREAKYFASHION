@@ -35,7 +35,6 @@ app.use('/products', detailsRouter);
 app.use('/search', searchRouter);
 app.use('/categories', categoryRouter);
 app.use('/admin/products', adminProductsRouter);
-app.use('/admin/new', adminProductsRouter);
 app.use('/admin/categories', adminCategoryRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,51 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/admin.css">
     <link rel="stylesheet" href="/stylesheets/admin-new.css">
     <title>Products Admin</title>
 </head>
 <body>
   <main>
-      <h1>Lägg till ny produkt</h1>
+    <h1><%= title %></h1>
 
     <section class="admin-new-form">
-    <form action="/admin/products/new" method="POST" enctype="multipart/form-data">
 
-        <p>Namn</p>
-        <input type="text" name="name">
+        <% if (type === 'product') { %>
 
-        <p>Beskrivning</p>
-        <textarea name="description"></textarea>
+            <form action="/admin/products/new" method="POST" enctype="multipart/form-data">
 
-        <p>Bild</p>
-        <input type="file" name="image" id="image">
+                <p>Namn</p>
+                <input type="text" name="name">
 
-        <p>Märke</p>
-        <input type="text" name="brand">
+                <p>Beskrivning</p>
+                <textarea name="description"></textarea>
 
-        <p>SKU</p>
-        <input type="text" name="SKU">
+                <p>Bild</p>
+                <input type="file" name="image">
 
-        <p>Pris</p>
-        <input type="number" name="price" step="0.01">
+                <P>Märke</P>
+                <input type="text" name="brand">
 
-        <p>Kategori</p>
-        <select name="category_id">
-            <% (categories || []).forEach(c => { %>
-                <option value="<%= c.id %>">
-                    <%= c.name %>
-                </option>
-            <% }) %>
-        </select>
+                <p>SKU</p>
+                <input type="text" name="SKU">
 
-        <button type="submit">Lägg till</button>
+                <p>Pris</p>
+                <input type="number" name="price" step="0.01">
 
-    </form>
-</section>
+                <p>Kategori</p>
+                <select name="category_id">
+                    <% categories.forEach(c => { %>
+                        <option value="<%= c.id %>">
+                            <%= c.name %>
+                        </option>
+                    <% }) %>
+                </select> <br><br>
 
-    <script src="/app.js"></script>
-  </main>
+                <button type="submit">Lägg till produkt</button>
+
+            </form>
+
+        <% } %>
+
+        <% if (type === 'category') { %>
+
+            <form action="/admin/categories/new" method="POST">
+
+                <p>Namn</p>
+                <input type="text" name="name"><br><br>
+
+                <button type="submit">Lägg till kategori</button>
+
+            </form>
+
+        <% } %>
+
+    </section>
+</main>
   
 
 </body>
