@@ -1,11 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
+const path = require('path');
 
-const upload = multer({
-  dest: 'public/uploads/'
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/images/products');
+  },
+  filename: (req, file, cb) => {
+    const uniqueName =
+      Date.now() + path.extname(file.originalname);
+
+    cb(null, uniqueName);
+  }
 });
 
+const upload = multer({ storage });
 // Importera db-objekt/
 const db = require('../../data/db');
 // Use admin layout for admin routes
@@ -36,14 +46,32 @@ router.get('/new', (req, res) => {
   });
 });
 router.post('/new', upload.single('image'), (req, res) => {
-  const { name, price, SKU, description, brand, category_id } = req.body;
+  const {
+    name,
+    price,
+    SKU,
+    description,
+    brand,
+    category_id
+  } = req.body;
+
+  const image = req.file ? req.file.filename : null;
 
   const insert = db.prepare(`
-    INSERT INTO products (name, price, SKU, description, brand, category_id)
-    VALUES (?, ?, ?, ?, ?, ?)
+    INSERT INTO products
+    (name, price, SKU, description, brand, category_id, image)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
   `);
 
-  insert.run(name, price, SKU, description, brand, category_id);
+  insert.run(
+    name,
+    price,
+    SKU,
+    description,
+    brand,
+    category_id,
+    image
+  );
 
   res.redirect('/admin/products');
 });

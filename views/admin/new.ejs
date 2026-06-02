@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/admin-new.css">
-    <title>Products Admin</title>
+    <title>administration</title>
 </head>
 <body>
   <main>
     <h1><%= title %></h1>
 
     <section class="admin-new-form">
-
         <% if (type === 'product') { %>
-
             <form action="/admin/products/new" method="POST" enctype="multipart/form-data">
 
                 <p>Namn</p>
@@ -23,7 +21,7 @@
                 <textarea name="description"></textarea>
 
                 <p>Bild</p>
-                <input type="file" name="image">
+                <input type="file" name="image" accept="image/*">
 
                 <P>Märke</P>
                 <input type="text" name="brand">
@@ -44,22 +42,15 @@
                 </select> <br><br>
 
                 <button type="submit">Lägg till produkt</button>
-
             </form>
-
         <% } %>
 
         <% if (type === 'category') { %>
-
             <form action="/admin/categories/new" method="POST">
-
                 <p>Namn</p>
                 <input type="text" name="name"><br><br>
-
                 <button type="submit">Lägg till kategori</button>
-
             </form>
-
         <% } %>
 
     </section>
