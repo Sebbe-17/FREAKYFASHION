@@ -28,6 +28,23 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
 
+// Middleware för att hämta kategorier och göra dem tillgängliga i alla vyer
+const db = require('./data/db');
+
+app.use((req, res, next) => {
+    try {
+        const categories = db
+            .prepare('SELECT * FROM categories')
+            .all();
+
+        res.locals.categories = categories;
+
+        next();
+    } catch (err) {
+        next(err);
+    }
+});
+
 // Routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
