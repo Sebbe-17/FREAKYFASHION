@@ -80,6 +80,8 @@
     .similar-products > div {  /* Till varje produkt */
         width: 100%;
         padding: 1rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
     }
 
     .similar-products .info {

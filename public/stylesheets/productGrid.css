@@ -1,0 +1,48 @@
+/* Product-cards: standard/mobil */
+.Product-cards {
+    width: 100%;
+}
+
+.Product-cards dl > li {  /* Till varje produkt */
+    padding: 1rem;
+}
+
+.Product-cards .info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Product-cards .Name {
+    flex-grow: 1;
+}
+
+.Product-cards .image-link img {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.Product-cards .brand {
+    font-size: 0.8rem;
+}
+.image-link .icon {  /* Positionerar hjärtat */
+    position: absolute;
+    align-self: flex-end;
+    margin: 0.5rem;
+    padding: 0.2rem;
+}
+
+/* Product-cards: Över 480px */
+@media (min-width: 480px) {
+    .Product-cards dl{  /* För struktur */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Product-cards: över 1024px */
+@media (min-width: 1024px) {
+    .Product-cards dl{  /* För struktur */
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
