@@ -12,46 +12,13 @@
 <body>
   <main class="index-main">
     <!-- Hero -->
-    <section class="hero-section">
-      <div class="hero-image"> <!-- Hero-bild -->
-        <img src="https://placehold.co/400x250?text=Hero" alt="Hero Image" />
-      </div>
-      <div> <!-- Hero-text -->
-        <h1>Lorem, ipsum dolor</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, ipsam
-          quod? Earum, quis explicabo accusamus odit repellat deleniti quam
-          labore..
-        </p>
-      </div>
-    </section>
+      <%- include('partials/hero') %>
 
     <!-- Spots -->
-    <section class="Spots"> <!-- Spots bilder -->
-      <a href=""><img src="https://placehold.co/600x400?text=Lorem,+ipsum+dolor" alt="Lorem, ipsum dolor" /></a>
-      <a href=""><img src="https://placehold.co/600x400?text=Lorem,+ipsum+dolor" alt="Lorem, ipsum dolor" /></a>
-      <a href=""><img src="https://placehold.co/600x400?text=Lorem,+ipsum+dolor" alt="Lorem, ipsum dolor" /></a>
-    </section>
+      <%- include('partials/spots') %>
 
   <!-- Produktkort, dynamiska, 8 stycken -->
-  <section class="Product-cards"> 
-      <dl>
-        <% products.slice(0, 8).forEach(product => { %>
-          <li>
-            <div class="image-link">
-              <a class="image-link" href="products/<%= product.id %>"><img src="https://placehold.co/200x300?text=<%= product.name %>" alt="<%= product.name %>" /></a>
-              <a href="#" class="icon"><i class="bi bi-suit-heart"></i></a>
-            </div>
-
-            <div class="info">
-              <span class="name"><%= product.name %></span>
-              <span><%= product.price %> SEK</span>
-            </div>
-            <span class="brand">levis</span>
-          </li>
-        <% }); %>
-      </dl>
-    </section>
+      <%- include('partials/productGrid') %>
   </main>
 </body>
 

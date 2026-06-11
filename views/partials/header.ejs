@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+    <header class="site-header">
+    <section>
+      <div>  <!-- Logotyp, länk till huvudsidan -->
+        <a href="/">
+          <img src="https://placehold.co/200x100?text=Logo" alt="Logotype" />
+        </a>
+      </div>
+
+      <!-- Sökfält och ikoner -->
+      <div class="search-and-icons">
+        <form class="search-bar" action="/search" method="GET">  <!-- Sökfält -->
+          <i class="bi bi-search"></i>  <!-- Sök-ikon (Bootstrap) -->
+          <input type="search" name="q" placeholder="Sök produkt" /> <!-- Sökfältet skickar en GET-förfrågan till /search med sökparametern -->
+          <button type="submit">Sök</button>
+        </form>
+        <!-- ikoner -->
+        <div class="icons">
+          <a href="#"><i class="bi bi-suit-heart"></i></a><a href="#"><i class="bi bi-basket3"></i></a>  <!-- Hjärta och Varukorg ikoner (Bootstrap) -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Huvudmeny -->
+    <nav>
+      <ul class="main-menu">  <!-- genererar dynamiskt länkar till kategori-sidor beroende på categories databasen -->
+        <% categories.forEach(category => { %>
+          <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
+        <% }); %>
+      </ul>
+    </nav>
+  </header>

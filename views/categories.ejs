@@ -1,27 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="/stylesheets/index.css" />  <!-- Resuses index.css due to shared styles -->
+  <title>Freaky Fashion</title>
+</head>
 
 <body>
   <!-- Main -->
   <main>
     <!-- Productkort, dynamsika, 4 stycken, samma kategori -->
     <h2 class="section-title"><%= products[0].category %></h2>
-    <section class="similar-products">
-      <dl>
-        <% products.slice(0, 4).forEach(product => { %>
-          <li>
-            <a href="/products/<%= product.id %>"><img src="https://placehold.co/200x300?text=<%= product.name %>" alt="<%= product.name %>" /></a> <!-- Länk till produkt inom samma mapp-->
-            <a href="#"><i class="bi bi-suit-heart"></i></a>
-          </li>
-
-          <li>
-            <span><%= product.name %></span>
-            <span><%= product.price %> SEK</span>
-            <p>levis</p>
-          </li>
-        <% }); %>
-      </dl>
-    </section>
+      <%- include('partials/productGrid') %>
   </main>
 
 </body>
