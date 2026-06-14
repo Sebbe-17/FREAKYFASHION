@@ -1,47 +1,44 @@
 @import url("productGrid.css");
-/* Index: standard/mobil */
+
+/* Index: standard/mobile */
 .index-main {
     padding: 1rem;
 }
 
-/* Hero: standard/mobil */
+/* Hero: standard/mobile */
 .hero-section {
     border: 2px solid black;
     text-align: center;
 }
-
-.hero-section div {  /* Till text och bild */
+.hero-section div {  /* For text and image */
     padding: 1rem;
 }
-
 .hero-section img {
     border: 1px solid black;
     width: 100%;
 }
 
-/* Hero: över 1024px */
+/* Hero: over 1024px */
 @media (min-width: 1024px) {
     .hero-section {
         display: flex;
         flex-direction: row-reverse;
     }
-
     .hero-section div {
         padding: 1rem;
     }
-
     .hero-section .hero-image {
         flex-grow: 1;
     }
 }
 
 
-/* Spots: osynlig under 1024px */
+/* Spots: only visible at 1024px and above */
 .Spots {
     display: none;
 }
 
-/* Över 1024px */
+/* Over 1024px */
 @media (min-width: 1024px) {
     .Spots {
     display: flex;
@@ -51,27 +48,21 @@
     margin-left: 1rem;
     margin-right: 1rem;
     }
-
     .spot {
         position: relative;
     }
-
     .Spots .image-placeholder {
         width: 600px;
         height: 400px;
         background: lightgray;
         border: 1px solid black;
     }
-
     .Spots .text {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-
         font-size: 2.2rem;
         font-weight: bold;
     }
 }
-
-/* Product-cards: standard/mobil */

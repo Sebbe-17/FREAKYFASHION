@@ -1,0 +1,45 @@
+/* Used by products.css */
+
+/* Similar products: Hide on mobile */
+.similar-products, .section-title {
+    display: none;
+}
+
+/* Similar products: Show over 640px */
+@media (min-width: 640px) {
+    .section-title {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .similar-products {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .similar-products > div {  /* For each product */
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .similar-products .info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .similar-products .Name {
+        flex-grow: 1;
+    }
+
+    .similar-products .image-link img {
+        border: 1px solid black;
+        width: 100%;
+    }
+
+    .similar-products .brand {
+        font-size: 0.8rem;
+    }
+}

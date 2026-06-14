@@ -1,47 +1,50 @@
-/* Product-cards: standard/mobil */
+/* Used by productGrid.css */
+
+/* Product-cards: standard/mobile */
 .Product-cards {
     width: 100%;
 }
 
-.Product-cards dl > li {  /* Till varje produkt */
+.Product-cards dl > li {  /* For each product */
     padding: 1rem;
 }
-
 .Product-cards .info {
     display: flex;
     justify-content: space-between;
 }
-
 .Product-cards .Name {
     flex-grow: 1;
 }
+.Product-cards .brand {
+    font-size: 0.8rem;
+}
 
+.Product-cards .image-link {
+    position: relative;
+}
 .Product-cards .image-link img {
     width: 100%;
     border: 1px solid black;
 }
-
-.Product-cards .brand {
-    font-size: 0.8rem;
-}
-.image-link .icon {  /* Positionerar hjärtat */
+.Product-cards .image-link .icon {
     position: absolute;
-    align-self: flex-end;
-    margin: 0.5rem;
+    font-size: 1.5rem;
+    bottom: 0.5rem;
+    right: 0.5rem;
     padding: 0.2rem;
 }
 
-/* Product-cards: Över 480px */
-@media (min-width: 480px) {
-    .Product-cards dl{  /* För struktur */
+/* Product-cards: Over 640px */
+@media (min-width: 640px) {
+    .Product-cards dl{  /* For structure */
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 }
 
-/* Product-cards: över 1024px */
+/* Product-cards: over 1024px */
 @media (min-width: 1024px) {
-    .Product-cards dl{  /* För struktur */
+    .Product-cards dl{  /* For structure */
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }

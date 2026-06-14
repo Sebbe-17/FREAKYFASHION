@@ -1,45 +1,44 @@
+/* Used by admin.css */
+
 /* Products Table */
-.admin-table {
-    width: 100%;
-}
 .admin-table-row {
     width: 100%;
     display: grid;
     grid-template-columns: 6fr 2fr 1fr;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-.admin-table-row td {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    padding: 0.3rem;
-}
-.admin-table-row:nth-of-type(even) {
-    background-color: rgb(238, 238, 238);
-}
-.admin-table-row:first-child {
-    background-color: rgb(192, 192, 192);
 }
 
 /* Categories Table */
-.admin-category-table {
-    width: 100%;
-}
 .admin-category-row {
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+/* Shared styles */
+.admin-table {
+    width: 100%;
+}
+
+.admin-table-row,
+.admin-category-row {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
+
+.admin-table-row td,
 .admin-category-row td {
     border-left: 1px solid black;
     border-right: 1px solid black;
     padding: 0.3rem;
 }
+
+.admin-table-row:nth-of-type(even),
 .admin-category-row:nth-of-type(even) {
     background-color: rgb(238, 238, 238);
 }
+
+.admin-table-row:first-child,
 .admin-category-row:first-child {
+    font-weight: bold;
     background-color: rgb(192, 192, 192);
 }

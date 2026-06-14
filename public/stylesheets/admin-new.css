@@ -1,4 +1,6 @@
-/* Till Formulär-fältet */
+/* Used by admin.css */
+
+/* Form-fields */
 .admin-new-form {
     padding: 1.5rem;
     width: 100%;
@@ -34,6 +36,7 @@
 .admin-new-form .form-price > input {
     width: 5rem;
 }
+
 .admin-new-form .form-category > select {
     width: 10rem;
     border-radius: .3rem;

@@ -1,17 +1,25 @@
-/* Fördelar: standard/mobil */
+/* Used by style.css */
+
+/* Benefits: standard/mobile */
 .benefits {
     padding: 1rem;
     font-size: 1.2rem;
 }
-.benefits > div {  /* Till varje container */
+.benefits > div {  /* For each container */
     display: flex;
     justify-content: center;
     line-height: 1.5;
     gap: 0.5rem;
 }
+.benefits i {  /* icons */
+    font-size: 2rem;
+}
+.benefits a {
+    align-self: center;
+}
 
 
-/* Footer: standard/mobil */
+/* Footer: standard/mobile */
 .gray-footer {
     line-height: 2rem;
 }
@@ -27,24 +35,32 @@
     gap: 0.5rem;
 }
 
+
 /* MEDIA QUERIES */
 
-/* Footer: under 480px */
-@media (max-width: 480px) {  /* Temporarily does not work (will fix later) */
+/* Footer: under 640px */
+@media (max-width: 640px) {
+    .footer-links a, .footer-links label {
+        display: flex;
+        justify-content: center;
+    }
     .footer-links label {
         border-top: 2px solid black;
         border-bottom: 2px solid black;
     }
-    /* toggle: Dölj länkarna */
+    /* toggle: hide links */
     #toggle-shopping:checked ~ a,
     #toggle-account:checked ~ a,
     #toggle-customer-service:checked ~ a {
         display: none;
     }
+    .copyright {
+        border-top: 1px solid black;
+    }
 }
-/* Footer: över 480px */
-@media (min-width: 480px) {
-    .benefits {  /* Struktur: 2 kolumner */
+/* Footer: over 640px */
+@media (min-width: 640px) {
+    .benefits {  /* Structure: 2 columns */
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
@@ -53,14 +69,14 @@
         padding: 1rem;
         border-top: 1px solid black;
     }
-    .gray-footer .footer-menu {  /* Lägger delarna i sidled */
+    .gray-footer .footer-menu {  /* places the items side by side */
         display: flex;
         gap: 3rem;
     }
 }
-/* Fördelar: över 1024px */
+/* Benefits: over 1024px */
 @media (min-width: 1024px) {
-    .benefits {  /* Struktur: 4 kolumner */
+    .benefits {  /* Structure: 4 columns */
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
