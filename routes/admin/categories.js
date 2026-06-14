@@ -1,19 +1,37 @@
 const express = require('express');
+const multer = require('multer');
+const path = require('path');
+
+const db = require('../../data/db');
 const router = express.Router();
 
-// Importera db-objekt
-const db = require('../../data/db');
+// Upload configuration
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: (_, __, cb) =>
+      cb(null, 'public/images/categories'),
 
-// Use admin layout for admin routes
+    filename: (_, file, cb) =>
+      cb(
+        null,
+        Date.now() + path.extname(file.originalname)
+      )
+  })
+});
+
+// Admin layout
 router.use((req, res, next) => {
   res.locals.layout = 'layouts/admin-layout';
   next();
 });
 
+// Categories
+
 // GET /admin/categories
 router.get('/', (req, res) => {
-  const select = db.prepare('SELECT * FROM categories');
-  const categories = select.all();
+  const categories = db
+    .prepare('SELECT * FROM categories')
+    .all();
 
   res.render('admin/categories', {
     title: 'Admin - Kategorier',
@@ -30,24 +48,23 @@ router.get('/new', (req, res) => {
 });
 
 // POST /admin/categories/new
-router.post('/new', (req, res) => {
+router.post('/new', upload.single('c_image'), (req, res) => {
   const { name } = req.body;
+  const imageFilename = req.file?.filename ?? null;
 
   try {
-    const insert = db.prepare(`
-      INSERT INTO categories (name)
-      VALUES (?)
-    `);
-
-    insert.run(name);
+    db.prepare(`
+      INSERT INTO categories (name, c_image)
+      VALUES (?, ?)
+    `).run(name, imageFilename);
 
     res.redirect('/admin/categories');
-
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
 
     res.render('admin/new', {
       title: 'Admin - Lägg till kategori',
+      type: 'category',
       error: 'Kategorin finns redan eller kunde inte sparas.'
     });
   }

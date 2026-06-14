@@ -1,33 +1,33 @@
 <!DOCTYPE html>
+<header class="site-header">
 
-    <header class="site-header">
-    <section>
-      <div>  <!-- Logotyp, länk till huvudsidan -->
-        <a href="/">
-          <img src="https://placehold.co/200x100?text=Logo" alt="Logotype" />
-        </a>
-      </div>
+<section>
+  <div>  <!-- Logo, link to homepage -->
+    <a href="/">
+      <img src="https://placehold.co/200x100?text=Logo" alt="Logotype" />
+    </a>
+  </div>
 
-      <!-- Sökfält och ikoner -->
-      <div class="search-and-icons">
-        <form class="search-bar" action="/search" method="GET">  <!-- Sökfält -->
-          <i class="bi bi-search"></i>  <!-- Sök-ikon (Bootstrap) -->
-          <input type="search" name="q" placeholder="Sök produkt" /> <!-- Sökfältet skickar en GET-förfrågan till /search med sökparametern -->
-          <button type="submit">Sök</button>
-        </form>
-        <!-- ikoner -->
-        <div class="icons">
-          <a href="#"><i class="bi bi-suit-heart"></i></a><a href="#"><i class="bi bi-basket3"></i></a>  <!-- Hjärta och Varukorg ikoner (Bootstrap) -->
-        </div>
-      </div>
-    </section>
+  <!-- Search and Icons -->
+  <div class="search-and-icons">
+    <form class="search-bar" action="/search" method="GET">  <!-- Search field -->
+      <i class="bi bi-search"></i>  <!-- Search icon (Bootstrap) -->
+      <input type="search" name="q" placeholder="Search product" /> <!-- The search field sends a GET request to /search with the search parameter -->
+      <button type="submit">Sök</button>
+    </form>
+    <!-- Icons -->
+    <div class="icons">
+      <a href="#"><i class="bi bi-suit-heart-fill"></i></a><a href="#"><i class="bi bi-basket3-fill"></i></a>  <!-- Hjärta och Varukorg ikoner (Bootstrap) -->
+    </div>
+  </div>
+</section>
 
-    <!-- Huvudmeny -->
-    <nav>
-      <ul class="main-menu">  <!-- genererar dynamiskt länkar till kategori-sidor beroende på categories databasen -->
-        <% categories.forEach(category => { %>
-          <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
-        <% }); %>
-      </ul>
-    </nav>
-  </header>
+<!-- Main Menu -->
+<nav>
+  <ul class="main-menu">  <!-- Dynamically generates links to category pages based on the categories database -->
+    <% categories.forEach(category => { %>
+      <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
+    <% }); %>
+  </ul>
+</nav>
+</header>

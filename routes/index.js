@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// Importera db-objekt/
+// Import db-objekt/
 const db = require('../data/db');
 const app = require('../app');
 
@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
   // /views/index.ejs
   res.render('index', {
     title: 'FreakyFashion',
-    products: products.slice(0, 8) // Visa endast de första 8 produkterna på startsidan
+    products: products.slice(0, 8) // Show only the first 8 products on the homepage
   });
 });
 

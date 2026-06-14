@@ -7,31 +7,32 @@
 </head>
 <body>
   <main>
-    <h1><%= title %></h1>
+    <h1><%= title %></h1>  <!-- Sub-header for the admin section -->
 
+    <!-- Dynamic form for adding new products or categories. Uses if statements to determine which form to display -->
     <section class="admin-new-form">
         <% if (type === 'product') { %>
             <form action="/admin/products/new" method="POST" enctype="multipart/form-data">
 
-                <p>Namn</p>
+                <p>Namn</p>  <!-- Name -->
                 <input type="text" name="name" maxlength="25" required>
 
-                <p>Beskrivning</p>
+                <p>Beskrivning</p>  <!-- Description -->
                 <textarea name="description"></textarea>
 
-                <p>Bild</p>
+                <p>Bild</p>  <!-- Image -->
                 <input type="file" name="p_image" accept="image/*">
 
-                <P>Märke</P>
+                <P>Märke</P>  <!-- Brand -->
                 <input type="text" name="brand">
 
-                <p>SKU</p>
+                <p>SKU</p>  <!-- SKU -->
                 <input type="text" name="SKU">
 
-                <p>Pris</p>
+                <p>Pris</p>  <!-- Price -->
                 <input type="number" name="price" step="0.01">
 
-                <p>Kategori</p>
+                <p>Kategori</p>  <!-- Category -->
                 <select name="category_id">
                     <% categories.forEach(c => { %>
                         <option value="<%= c.id %>">
@@ -46,10 +47,13 @@
 
         <% if (type === 'category') { %>
             <form action="/admin/categories/new" method="POST" enctype="multipart/form-data">
-                <p>Namn</p>
+
+                <p>Namn</p>  <!-- Name -->
                 <input type="text" name="name" maxlength="25" required>
-                <p>Bild</p>
+
+                <p>Bild</p>  <!-- Image -->
                 <input type="file" name="c_image" accept="image/*"><br><br>
+
                 <button type="submit">Lägg till kategori</button>
             </form>
         <% } %>

@@ -28,9 +28,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
 
-// Middleware för att hämta kategorier och göra dem tillgängliga i alla vyer
+// Middleware for fetching categories for all routes
 const db = require('./data/db');
-
 app.use((req, res, next) => {
     try {
         const categories = db
@@ -45,6 +44,11 @@ app.use((req, res, next) => {
     }
 });
 
+// Middleware for setting the current path for all routes
+app.use((req, res, next) => {
+    res.locals.path = req.path;
+    next();
+});
 // Routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -53,6 +57,7 @@ app.use('/search', searchRouter);
 app.use('/categories', categoryRouter);
 app.use('/admin/products', adminProductsRouter);
 app.use('/admin/categories', adminCategoryRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

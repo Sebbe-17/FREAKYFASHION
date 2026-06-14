@@ -1,51 +1,53 @@
 const express = require('express');
-const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/images/products');
-  },
-  filename: (req, file, cb) => {
-    const uniqueName =
-      Date.now() + path.extname(file.originalname);
+const db = require('../../data/db');
+const router = express.Router();
 
-    cb(null, uniqueName);
-  }
+// Upload configuration
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: (_, __, cb) =>
+      cb(null, 'public/images/products'),
+
+    filename: (_, file, cb) =>
+      cb(
+        null,
+        Date.now() + path.extname(file.originalname)
+      )
+  })
 });
 
-const upload = multer({ storage });
-// Importera db-objekt/
-const db = require('../../data/db');
-// Use admin layout for admin routes
+// Admin layout
 router.use((req, res, next) => {
-  res.locals.layout = 'layouts/admin-layout'; // Sätt layouten för admin-sidor
+  res.locals.layout = 'layouts/admin-layout';
   next();
 });
 
-// GET http://localhost:3000/admin/products
+// Products
+
+// GET /admin/products
 router.get('/', (req, res) => {
-  const select = db.prepare('SELECT * FROM products');
-  const products = select.all(); // Hämta alla produkter från databasen
-  
-  // /views/admin/index.ejs
+  const products = db.prepare('SELECT * FROM products').all();
+
   res.render('admin/products', {
     title: 'Admin - Produkter',
-    products // Skicka produkterna till admin-produktvyn
+    products
   });
-
 });
-router.get('/new', (req, res) => {
-  const categories = db.prepare('SELECT * FROM categories').all();
 
+// GET /admin/products/new
+router.get('/new', (req, res) => {
   res.render('admin/new', {
     title: 'Admin - Lägg till produkt',
     type: 'product',
-    categories
+    categories: db.prepare('SELECT * FROM categories').all()
   });
 });
-router.post('/new', upload.single('image'), (req, res) => {
+
+// POST /admin/products/new
+router.post('/new', upload.single('p_image'), (req, res) => {
   const {
     name,
     price,
@@ -55,26 +57,21 @@ router.post('/new', upload.single('image'), (req, res) => {
     category_id
   } = req.body;
 
-  const image = req.file ? req.file.filename : null;
-
-  const insert = db.prepare(`
+  db.prepare(`
     INSERT INTO products
-    (name, price, SKU, description, brand, category_id, image)
+    (name, price, SKU, description, brand, category_id, p_image)
     VALUES (?, ?, ?, ?, ?, ?, ?)
-  `);
-
-  insert.run(
+  `).run(
     name,
     price,
     SKU,
     description,
     brand,
     category_id,
-    image
+    req.file?.filename ?? null
   );
 
   res.redirect('/admin/products');
 });
-
 
 module.exports = router;

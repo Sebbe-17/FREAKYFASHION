@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administation</title>
+</head>
+<body>
+    <main>
+        <!-- Sub-header for the admin section. Using in layout causes issues, ...may fix later -->
+        <section class="admin-sub-header">
+            <h1>Kategorier</h1>
+            <a href="/admin/categories/new" class="admin-new-button">Ny kategori</a>
+        </section>
+
+        <!-- Categories table -->
+        <table class="admin-table">
+            <tr class="admin-category-row">  <!-- Top-row-->
+                <td>Namn</td>
+            </tr>
+            <% categories.forEach(category => { %>  <!-- category rows, based on categories array -->
+                <tr class="admin-category-row">
+                    <td><%= category.name %></td>
+                </tr>
+            <% }); %>
+        </table>
+    </main>
+</body>
+</html>

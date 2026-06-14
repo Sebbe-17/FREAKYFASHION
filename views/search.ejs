@@ -8,16 +8,16 @@
 
 <body>
     <main>
-        <!-- Ger olika meddelanden beroende på antal sökresultat -->
-
-        <!-- Om ingen produkt hittas, visas ett meddelande -->
+        <!-- Gives different messages depending on the number of search results -->
+         
+        <!-- If no products are found -->
         <% if (products.length === 0) { %>
           <div class="search-results-header">
             <p>Inga produkter hittades som matchar sökningen.</p>
           </div>
         <% } %>
 
-        <!-- om bara ett sökresultat hittadess visa medelande -->
+        <!-- If one product is found -->
         <% if (products.length === 1) { %>
           <div class="search-results-header">
             <h1>Sökresultat</h1>
@@ -25,7 +25,7 @@
           </div>
         <% } %>
 
-          <!-- Om flera sökresultat hittas, visa meddelande -->
+          <!-- If multiple search results are found -->
         <% if (products.length > 1) { %>
           <div class="search-results-header">
             <h1>Sökresultat</h1>  
@@ -33,7 +33,7 @@
           </div>
         <% } %>
 
-        <!-- visar produkter med namn som innehåller söktermen -->
+        <!-- Displays matching products -->
         <%- include('partials/productGrid') %>
     </main>
 </body>

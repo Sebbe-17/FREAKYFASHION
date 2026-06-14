@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-// Importera db-objekt/
+// Import db-objekt/
 const db = require('../data/db');
 const app = require('../app');
 
-// Errorhantering för /products utan id
+// Error handling for /products without id
 router.get('/', (req, res, next) => {
   res.status(400).send('Du måste ange en produkt-id i URL:en');
 
@@ -15,9 +15,9 @@ router.get('/:id', (req, res) => {
   const id = req.params.id;
   const select = db.prepare('SELECT * FROM products');
   const products = select.all();
-  const product = products.find(p => p.id === parseInt(id));  // Hitta produkten med det angivna id:t
+  const product = products.find(p => p.id === parseInt(id));  // Find the product with the specified id
 
-// Om ingen produkt hittas med det angivna id:t, returnera 404
+// If no product is found with the specified id, return 404
   if (!product) {
     res.status(404).send('Produkt hittades inte');
     return;
@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
   res.render('products', {
     title: product.name,
     product: product,
-    products: products.filter(p => p.price === product.price && p.id !== parseInt(id)).slice(0, 3) // Visa endast de första 3 produkterna i listan med samma pris över relaterade produkter, utan att visa den aktuella produkten
+    products: products.filter(p => p.category_id === product.category_id && p.id !== parseInt(id)).slice(0, 3) // Exclude the current product and show only 3 similar products based on category
   });
 });
 

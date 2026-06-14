@@ -4,25 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/admin.css">
-    <title>Products Admin</title>
+    <title><%= title %></title>
 </head>
 <body>
+    <!-- Admin header -->
     <header class="admin-header">
       <div>
           <h1>Administration</h1>
       </div>
     </header>
-    
-    
 
     <main class="admin-main">
-        <aside class="admin-left"> <!-- Under-rubrik -->
-            <h2><a href="/admin/products">Producter</a></h2>
-            <h3><a href="/admin/categories">kategorier</a></h3>
+        
+        <!-- Admin aside, allows navigation between admin pages and shows active page-->
+        <aside class="admin-left">
+            <h2 class="<%= path.startsWith('/admin/products') ? 'active' : '' %>">
+                <a href="/admin/products">Produkter</a>
+            </h2>
+
+            <h2 class="<%= path.startsWith('/admin/categories') ? 'active' : '' %>">
+                <a href="/admin/categories">Kategorier</a>
+            </h2>
         </aside>
+
+        <!-- Admin body, dynamic content based on which admin page is active -->
         <section class="admin-body">
             <%- body %>
         </section>
     </main>
+
 </body>
 </html>

@@ -2,49 +2,81 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/products.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
   <title><%= product.name %></title>
 </head>
 
 <body>
   <!-- Main -->
   <main>
-    <section class="details">
-      <div class="detail-image">  <!-- Bild -->
-        <a href=""><img src="https://placehold.co/200x300?text=<%= product.name %>" alt="<%= product.name %>" /></a>
-      </div>
-      <div class="detail-info">  <!-- Text/Info -->
-        <h1><b><%= product.name %></b></h1>
-        <span>levis</span>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate
-          laborum sed fugit quo. Dolorum enim quibusdam cumque explicabo ea
-          officia at, incidunt nostrum exercitationem ullam. Adipisci quaerat
-          reiciendis, est ipsum illum consectetur? Quidem odit esse in
-          similique deleniti omnis asperiores?
-        </p>
-        <h2><%= product.price %>: SEK</h2>
-        <button class="add-wares">Lägg i varukorg</button>  <!-- Knapp -->
-      </div>
-    </section>
+  <section class="details">
 
-    <!-- Liknande produkter, dynamiska, 3 stycken -->
-    <h2 class="section-title">Liknande produkter</h2>
-    <section class="similar-products">
-      <dl>
-        <% products.slice(0, 3).forEach(product => { %>
-          <li>
-          <a href="<%= product.id %>"><img src="https://placehold.co/200x300?text=<%= product.name %>" alt="<%= product.name %>" /></a> <!-- Länk till produkt inom samma mapp-->
-          <a href="#"><i class="bi bi-suit-heart"></i></a>
-          </li>
+    <!-- Image -->
+    <div class="detail-image">
+      <a href="">
+        <img
+          src="https://placehold.co/200x300?text=<%= product.name %>"
+          alt="<%= product.name %>"
+        />
+      </a>
 
-          <li>
+      <a href="#" class="icon">
+        <i class="bi bi-suit-heart"></i>
+      </a>
+    </div>
+
+    <!-- Text / Info -->
+    <div class="detail-info">
+
+      <h1><b><%= product.name %></b></h1>
+      <span>levis</span>
+
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate
+        laborum sed fugit quo. Dolorum enim quibusdam cumque explicabo ea
+        officia at, incidunt nostrum exercitationem ullam. Adipisci quaerat
+        reiciendis, est ipsum illum consectetur? Quidem odit esse in
+        similique deleniti omnis asperiores?
+      </p>
+
+      <h2><%= product.price %>: SEK</h2>
+      <button class="add-wares">Lägg i varukorg</button>
+
+    </div>
+  </section>
+
+  <!-- Similar products, dosn't use productgrid due to incompatibility in usage -->
+  <h2 class="section-title">Liknande produkter</h2>
+
+  <section class="similar-products">
+    <% products.slice(0, 3).forEach(product => { %>
+      <div>
+
+        <!-- Image -->
+        <div class="image-link">
+          <a href="<%= product.id %>">
+            <img
+              src="https://placehold.co/200x300?text=<%= product.name %>"
+              alt="<%= product.name %>"
+            />
+          </a>
+        </div>
+
+        <!-- Text / Info -->
+        <div class="info">
           <span><%= product.name %></span>
           <span><%= product.price %> SEK</span>
-          <p>levis</p>
-          </li>
-        <% }); %>
-      </dl>
-    </section>
-  </main>
+        </div>
+
+        <span class="brand">levis</span>
+
+      </div>
+    <% }); %>
+
+  </section>
+</main>
 </body>
 </html>
