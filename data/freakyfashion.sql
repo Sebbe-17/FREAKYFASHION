@@ -1,10 +1,18 @@
+CREATE TABLE categories (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL UNIQUE
+);
+
 CREATE TABLE products (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
-  price INTEGER NOT NULL CHECK (price >= 0)
+  price INTEGER NOT NULL CHECK (price >= 0),
+  description TEXT,
+  brand TEXT,
+  sku TEXT,
+  image TEXT,
+  category_id INTEGER NOT NULL,
+  FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
-INSERT INTO products (name, price)
-VALUES 
-('Svart T-Shirt', 199),
-('Vit T-Shirt', 199);
+ON products.category_id = categories.id

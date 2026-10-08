@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
   }
 // /views/products.ejs
   res.render('products', {
-    title: product.name,
+    title: product.name + " - FreakyFashion",
     product: product,
     products: products.filter(p => p.category_id === product.category_id && p.id !== parseInt(id)).slice(0, 3) // Exclude the current product and show only 3 similar products based on category
   });

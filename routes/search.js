@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 
     // /views/search.ejs
     res.render('search', { 
-        title: `Sökresultat för "${query}"`,
+        title: `Sökresultat: ${query} - FreakyFashion`,
         products, 
         query }); // Render the search results page with the search query and the products that match the search query
 });

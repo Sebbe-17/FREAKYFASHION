@@ -21,7 +21,7 @@
         <% if (products.length === 1) { %>
           <div class="search-results-header">
             <h1>Sökresultat</h1>
-            <p>Hittade en produkt med termen "<%= query %>".</p>
+            <p>Hittade en produkt med termen: <%= query %></p>
           </div>
         <% } %>
 
@@ -29,7 +29,7 @@
         <% if (products.length > 1) { %>
           <div class="search-results-header">
             <h1>Sökresultat</h1>  
-            <p>Hittade <%=(products.length)%> produkter med termen "<%= query %>".</p>
+            <p>Hittade <%=(products.length)%> produkter med termen: <%= query %></p>
           </div>
         <% } %>
 
