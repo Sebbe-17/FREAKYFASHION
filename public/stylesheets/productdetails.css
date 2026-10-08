@@ -22,7 +22,7 @@
 
     .similar-products > div {  /* For each product */
         width: 100%;
-        padding: 1rem;
+        padding: 2rem;
     }
 
     .similar-products .info {

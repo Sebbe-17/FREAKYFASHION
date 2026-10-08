@@ -17,6 +17,10 @@ router.get('/:category_id', (req, res) => {
   const category_id = req.params.category_id;
   const select = db.prepare('SELECT * FROM products WHERE category_id = ?');
   const products = select.all(category_id); // Get all products in the specified category
+  const categoryStmt = db.prepare(
+    'SELECT name FROM categories WHERE id = ?'
+  );
+  const category = categoryStmt.get(category_id);
 
 
   // If no products are found for the specified category, return 404
@@ -27,8 +31,8 @@ router.get('/:category_id', (req, res) => {
 
   //views/categories.ejs
   res.render('categories', {
-    title: `Kategori: ${category_id}`,
-    products: products.slice(0, 4) // Visa endast de första 4 produkterna i kategorin
+    title: `${category.name} - FreakyFashion`,
+    products: products.slice(0, 4)
   });
 
 });

@@ -39,6 +39,8 @@ router.get('/', (req, res) => {
   });
 });
 
+// Categories/new
+
 // GET /admin/categories/new
 router.get('/new', (req, res) => {
   res.render('admin/new', {
